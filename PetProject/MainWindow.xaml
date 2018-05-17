@@ -1,0 +1,25 @@
+﻿<Window x:Class="PetProject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PetProject"
+        mc:Ignorable="d"
+        Title="PetProject" Height="350" Width="525">
+    <Window.Resources>
+        <CollectionViewSource 
+              Source="{Binding Source={x:Static Application.Current}, Path=Dogs}"   
+              x:Key="DogsDataView" />
+    </Window.Resources>
+        
+    
+    
+    <Grid Margin="8,8,8,8">
+        <TabControl>
+            <TabItem Header="Dogs">
+                <DataGrid ItemsSource="{Binding Source={StaticResource DogsDataView}}">
+                </DataGrid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
